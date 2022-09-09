@@ -1,7 +1,8 @@
 import React from 'react';
 
-function Home() {
+const Home = () => {
     return (
+        <>
         <div id="myCarousel" className="carousel slide carousel-fade" data-bs-ride="carousel">
             <div className="carousel-indicators">
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" className="active" aria-current="true"
@@ -33,6 +34,7 @@ function Home() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 
