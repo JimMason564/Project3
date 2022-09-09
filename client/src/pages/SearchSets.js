@@ -16,19 +16,19 @@ import { saveSetIds, getSetBookIds } from "../utils/localStorage";
 
 const SearchSets = () => {
   // create state for holding returned google api data
-  const [searchedBooks, setSearchedBooks] = useState([]);
+  const [searchedSets, setSearchedSets] = useState([]);
   // create state for holding our search field data
   const [searchInput, setSearchInput] = useState("");
 
   // create state to hold saved bookId values
-  const [savedBookIds, setSavedBookIds] = useState(getSavedBookIds());
+  const [savedSetIds, setSavedSetIds] = useState(getSavedSetsIds());
 
-  const [saveBook, { error }] = useMutation(SAVE_BOOK);
+  const [saveSet, { error }] = useMutation(SAVE_SET);
 
   // set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
   useEffect(() => {
-    return () => saveBookIds(savedBookIds);
+    return () => saveBookIds(savedSetIds);
   });
 
   // create method to search for books and set state on form submit
@@ -50,7 +50,7 @@ const SearchSets = () => {
 
       const { items } = await response.json();
 
-      const bookData = items.map((book) => ({
+      const bookData = items.map((set) => ({
         bookId: book.id,
         authors: book.volumeInfo.authors || ["No author to display"],
         title: book.volumeInfo.title,
@@ -58,7 +58,7 @@ const SearchSets = () => {
         image: book.volumeInfo.imageLinks?.thumbnail || "",
       }));
 
-      setSearchedBooks(bookData);
+      setSearchedSets(bookData);
       setSearchInput("");
     } catch (err) {
       console.error(err);
@@ -66,9 +66,9 @@ const SearchSets = () => {
   };
 
   // create function to handle saving a book to our database
-  const handleSaveBook = async (bookId) => {
+  const handleSaveSet = async (bookId) => {
     // find the book in `searchedBooks` state by the matching id
-    const bookToSave = searchedBooks.find((book) => book.bookId === bookId);
+    const setToSave = searchedSets.find((set) => set.setId === setId);
 
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -78,12 +78,12 @@ const SearchSets = () => {
     }
 
     try {
-      const { data } = await saveBook({
-        variables: { bookData: { ...bookToSave } },
+      const { data } = await saveSet({
+        variables: { setData: { ...setToSave } },
       });
-      console.log(savedBookIds)
+      console.log(savedSetIds)
       // if book successfully saves to user's account, save book id to state
-      setSavedBookIds([...savedBookIds, bookToSave.bookId]);
+      setSavedSetIds([...savedSetIds, bookToSet.setId]);
     } catch (err) {
       console.error(err);
     }
@@ -139,14 +139,14 @@ const SearchSets = () => {
                   <Card.Text>{book.description}</Card.Text>
                   {Auth.loggedIn() && (
                     <Button
-                      disabled={savedBookIds?.some(
-                        (savedBookId) => savedBookId === book.bookId
+                      disabled={savedSetIds?.some(
+                        (savedSetId) => savedSetId === book.setId
                       )}
                       className="btn-block btn-info"
-                      onClick={() => handleSaveBook(book.bookId)}
+                      onClick={() => handleSearchBook(set.setId)}
                     >
                       {savedBookIds?.some(
-                        (savedBookId) => savedBookId === book.bookId
+                        (savedSetId) => savedSetId === set.setId
                       )
                         ? "This book has already been saved!"
                         : "Save this Book!"}
@@ -162,4 +162,4 @@ const SearchSets = () => {
   );
 };
 
-export default SearchBooks;
+export default SearchSets;
