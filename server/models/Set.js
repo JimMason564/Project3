@@ -4,23 +4,23 @@ const { Schema } = require('mongoose');
 const setSchema = new Schema({
   // saved set id from Brickset
   setID: {
-    type: Number
+    type: Integer
   },
   name: {
-    type: String,
+    type: String
   },
   // set number from Lego
   number: {
-    type: Number,
+    type: Integer
   },
   theme: {
     type: String
   },
   year: {
-    type: Number
+    type: Integer
   },
   image: {
-    type: String,
+    type: String
   }
 });
 
