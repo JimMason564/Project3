@@ -13,15 +13,15 @@ import { QUERY_ME } from "../utils/queries";
 import { REMOVE_BOOK } from "../utils/mutations";
 import { removeBookId } from "../utils/localStorage";
 
-const SavedBooks = () => {
+const SavedSets = () => {
   const { loading, data } = useQuery(QUERY_ME);
-  const [removeBook, { error }] = useMutation(REMOVE_BOOK);
+  const [removeSet, { error }] = useMutation(REMOVE_SET);
 
   // use this to determine if `useEffect()` hook needs to run again
   const userData = data?.me || {};
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
-  const handleDeleteBook = async (bookId) => {
+  const handleDeleteSet = async (bookId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
@@ -29,11 +29,11 @@ const SavedBooks = () => {
     }
 
     try {
-      await removeBook({
+      await removeSet({
         variables: { bookId },
       });
 
-      removeBookId(bookId);
+      removeSetNumber(setNumber);
     } catch (err) {
       console.error(err);
     }
@@ -53,14 +53,14 @@ const SavedBooks = () => {
       </Jumbotron>
       <Container>
         <h2>
-          {userData.savedBooks.length
-            ? `Viewing ${userData.savedBooks.length} saved ${
-                userData.savedBooks.length === 1 ? "book" : "books"
+          {userData.savedSets.length
+            ? `Viewing ${userData.savedSets.length} saved ${
+                userData.savedSets.length === 1 ? "book" : "books"
               }:`
-            : "You have no saved books!"}
+            : "You have no saved sets!"}
         </h2>
         <CardColumns>
-          {userData.savedBooks.map((book) => {
+          {userData.savedSets.map((sets) => {
             return (
               <Card key={book.bookId} border="dark">
                 {book.image ? (
@@ -76,7 +76,7 @@ const SavedBooks = () => {
                   <Card.Text>{book.description}</Card.Text>
                   <Button
                     className="btn-block btn-danger"
-                    onClick={() => handleDeleteBook(book.bookId)}
+                    onClick={() => handleDeleteSets(sets.setNumber)}
                   >
                     Delete this Book!
                   </Button>
@@ -90,4 +90,4 @@ const SavedBooks = () => {
   );
 };
 
-export default SavedBooks;
+export default SavedSets;
