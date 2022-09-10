@@ -1,54 +1,31 @@
 const { gql } = require('apollo-server-express');
 
-const typeDefs = gql`
-  type Author {
-    id: Int!
-    firstName: String
-    lastName: String
-    posts: [Post]
+const typeDefs = gql`  
+  type User {
+    username: String! 
+    email: String!
+    savedSets: [Set]
   }
-
-  type Post {
-    id: Int!
-    title: String
-    authorId: ID!
-    votes: Int
+  type Set {
+    setID: Integer
+    name: String
+    Integer: Integer
+    theme: String
+    year: String
+    image: String
   }
-
-  input PostData {
-    id: Int!
-    title: String
-    authorId: ID!
-    votes: Int
+  type Auth {
+    token: ID!
+    user: User
   }
-
-  input AuthorData {
-    id: Int!
-    firstName: String
-    lastName: String
-    posts: [PostData]
-  }
-
-  type postResponse {
-    success: Boolean
-    post: Post
-  }
-
-  type authorResponse {
-    success: Boolean
-    author: Author
-  }
-
   type Query {
-    posts: [Post]
-    authors: [Author]
-    author(id: Int!): Author
-    post(id: Int!): Post
+    me: User
   }
-
   type Mutation {
-    createPost(post: PostData): postResponse
-    createAuthor(author: AuthorData): authorResponse
+    login(email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
+    saveSet(setID: [Integer], name: String, Integer: Integer, theme: String, year: Integer, image: String): User
+    removeSet(setId: Integer!): User
   }
 `;
 

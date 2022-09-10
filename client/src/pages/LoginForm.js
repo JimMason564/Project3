@@ -22,7 +22,7 @@ const LoginForm = () => {
                             />
                             <label>Password</label>
                             <input
-                                type='text'
+                                type='password'
                                 name='search_sets'
                                 class='form-control form-control-lg'
                                 placeholder='Password'
