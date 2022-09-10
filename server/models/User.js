@@ -47,10 +47,10 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-// when we query a user, we'll also get another field called `bookCount` with the number of saved books we have
-userSchema.virtual('bookCount').get(function () {
-  return this.savedBooks.length;
-});
+// // when we query a user, we'll also get another field called `setCount` with the number of saved sets we have
+// userSchema.virtual('setCount').get(function () {
+//   return this.savedSets.length;
+// });
 
 const User = model('User', userSchema);
 

@@ -38,37 +38,37 @@ console.log(email, password)
 
       return { token, user };
     },
-    saveSet: async (parent, { authors, description, title, bookId, image, link }, context) => {
-      if (context.user) {
+    // saveSet: async (parent, { authors, description, title, bookId, image, link }, context) => {
+    //   if (context.user) {
 
-        const user = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          {
-            $addToSet: {
-              savedBooks: {
-                authors, description, title, bookId, image, link
-              }
-            }
-          }
-        );
+    //     const user = await User.findOneAndUpdate(
+    //       { _id: context.user._id },
+    //       {
+    //         $addToSet: {
+    //           savedBooks: {
+    //             authors, description, title, bookId, image, link
+    //           }
+    //         }
+    //       }
+    //     );
 
-        return user;
-      }
-      throw new AuthenticationError('You need to be logged in!');
-    },
+    //     return user;
+    //   }
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
 
-    removeBook: async (parent, { bookId }, context) => {
-      if (context.user) {
+    // removeSet: async (parent, { setID }, context) => {
+    //   if (context.user) {
 
-        const user = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { savedBooks: { bookId } } }
-        );
+    //     const user = await User.findOneAndUpdate(
+    //       { _id: context.user._id },
+    //       { $pull: { savedSets: { setID } } }
+    //     );
 
-        return user;
-      }
-      throw new AuthenticationError('You need to be logged in!');
-    },
+    //     return user;
+    //   }
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
   },
 };
 
