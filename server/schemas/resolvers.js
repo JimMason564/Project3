@@ -1,48 +1,75 @@
-const authors = [
-  { id: 1, firstName: 'John', lastName: 'Smith' },
-  { id: 2, firstName: 'Xander', lastName: 'R' },
-  { id: 3, firstName: 'Grace', lastName: 'C' },
-];
+const { AuthenticationError } = require('apollo-server-express');
+const { User } = require('../models');
+const { signToken } = require('../utils/auth');
 
-const posts = [
-  { id: 1, authorId: 1, title: 'Introduction to GraphQL', votes: 15 },
-  { id: 2, authorId: 2, title: 'Intro to Apollo', votes: 12 },
-  { id: 3, authorId: 2, title: 'TypeDefs', votes: 10 },
-  { id: 4, authorId: 3, title: 'MERN', votes: 3 },
-];
-
-module.exports = {
+const resolvers = {
   Query: {
-    posts: () => posts,
-    authors: () => authors,
-    author: (parent, args) => {
-      return authors.find((author) => author.id === args.id);
-    },
-    post: (parent, args) => {
-      return posts.find((post) => post.id === args.id);
+    me: async (parent, args, context) => {
+      console.log(context.user)
+      if (context.user) {
+        const user = await User.findOne({ _id: context.user._id });
+        console.log(user)
+        return user
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
   },
 
   Mutation: {
-    createPost: (parent, newPost) => {
-      console.log('🚀 newPost id', newPost.post.id);
-      posts.push(newPost.post);
-      const result = {
-        success: true,
-        post: newPost.post,
-      };
-      return result;
+    addUser: async (parent, { username, email, password }) => {
+      const user = await User.create({ username, email, password });
+      const token = signToken(user);
+      return { token, user };
     },
-    createAuthor: (parent, newAuthor) => {
-      console.log('🚀 newAuthor', newAuthor);
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+console.log(email, password)
+      if (!user) {
+        throw new AuthenticationError('No user found with this email address');
+      }
 
-      authors.push(newAuthor.author);
-      const result = {
-        success: true,
-        author: newAuthor.author,
-      };
-      console.log(newAuthor.author);
-      return result;
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const token = signToken(user);
+
+      return { token, user };
+    },
+    saveSet: async (parent, { authors, description, title, bookId, image, link }, context) => {
+      if (context.user) {
+
+        const user = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          {
+            $addToSet: {
+              savedBooks: {
+                authors, description, title, bookId, image, link
+              }
+            }
+          }
+        );
+
+        return user;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+
+    removeBook: async (parent, { bookId }, context) => {
+      if (context.user) {
+
+        const user = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { savedBooks: { bookId } } }
+        );
+
+        return user;
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
   },
 };
+
+module.exports = resolvers;
