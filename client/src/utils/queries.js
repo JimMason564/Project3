@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_AUTHORS = gql`
+export const QUERY_SETS = gql `
   query getAuthors {
     authors {
       id
@@ -10,7 +10,7 @@ export const QUERY_AUTHORS = gql`
   }
 `;
 
-export const QUERY_POSTS = gql`
+export const QUERY_POSTS = gql `
   query getPosts {
     posts {
       id
@@ -18,7 +18,7 @@ export const QUERY_POSTS = gql`
   }
 `;
 
-export const QUERY_AUTHOR = gql`
+export const QUERY_AUTHOR = gql `
   query getAuthor($id: Int!) {
     author(id: $id) {
       id
@@ -28,7 +28,7 @@ export const QUERY_AUTHOR = gql`
   }
 `;
 
-export const QUERY_POST = gql`
+export const QUERY_POST = gql `
   query getPost($id: Int!) {
     post(id: $id) {
       id
