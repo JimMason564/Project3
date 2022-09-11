@@ -8,7 +8,6 @@ const resolvers = {
       console.log(context.user)
       if (context.user) {
         const user = await User.findOne({ _id: context.user._id });
-        console.log(user)
         return user
       }
       throw new AuthenticationError('You need to be logged in!');
@@ -23,7 +22,6 @@ const resolvers = {
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
-console.log(email, password)
       if (!user) {
         throw new AuthenticationError('No user found with this email address');
       }

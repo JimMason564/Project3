@@ -9,25 +9,25 @@ const userSchema = new Schema(
     username: {
       type: String,
       required: true,
-      unique: true,
+      unique: true
     },
     email: {
       type: String,
       required: true,
       unique: true,
-      match: [/.+@.+\..+/, 'Must use a valid email address'],
+      match: [/.+@.+\..+/, 'Must use a valid email address']
     },
     password: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
     // set savedSets to be an array of data that adheres to the setSchema
-    savedSets: [setSchema],
+    // savedSets: [setSchema],
   },
   // set this to use virtual below
   {
     toJSON: {
-      virtuals: true,
+      virtuals: true
     },
   }
 );

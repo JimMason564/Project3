@@ -7,9 +7,9 @@ const typeDefs = gql`
     savedSets: [Set]
   }
   type Set {
-    setID: String
+    setID: Int
     name: String
-    number: String
+    number: Int
     theme: String
     year: String
     image: String
@@ -24,8 +24,8 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    saveSet(setID: [String], name: String, number: String, theme: String, year: String, image: String): User
-    removeSet(setId: String!): User
+    saveSet(setID: [Int], name: String, number: Int, theme: String, year: Int, image: String): User
+    removeSet(setId: Int!): User
   }
 `;
 
