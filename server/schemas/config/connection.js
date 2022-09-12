@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-console.log("Look here")
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb+srv://test1234:20sNZCUO4IbVz5mc@legoproject.hbkqcsh.mongodb.net/?retryWrites=true&w=majority",
   {
