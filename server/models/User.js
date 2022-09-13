@@ -9,25 +9,25 @@ const userSchema = new Schema(
     username: {
       type: String,
       required: true,
-      unique: true,
+      unique: true
     },
     email: {
       type: String,
       required: true,
       unique: true,
-      match: [/.+@.+\..+/, 'Must use a valid email address'],
+      match: [/.+@.+\..+/, 'Must use a valid email address']
     },
     password: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
     // set savedSets to be an array of data that adheres to the setSchema
-    savedSets: [setSchema],
+    // savedSets: [setSchema],
   },
   // set this to use virtual below
   {
     toJSON: {
-      virtuals: true,
+      virtuals: true
     },
   }
 );
@@ -47,10 +47,10 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-// when we query a user, we'll also get another field called `bookCount` with the number of saved books we have
-userSchema.virtual('bookCount').get(function () {
-  return this.savedBooks.length;
-});
+// // when we query a user, we'll also get another field called `setCount` with the number of saved sets we have
+// userSchema.virtual('setCount').get(function () {
+//   return this.savedSets.length;
+// });
 
 const User = model('User', userSchema);
 
