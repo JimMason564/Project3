@@ -44,30 +44,30 @@ module.exports = {
   },
   // save a set to a user's `savedSets` field by adding it to the set (to prevent duplicates)
   // user comes from `req.user` created in the auth middleware function
-  async saveSet({ user, body }, res) {
-    console.log(user);
-    try {
-      const updatedUser = await User.findOneAndUpdate(
-        { _id: user._id },
-        { $addToSet: { savedSets: body } },
-        { new: true, runValidators: true }
-      );
-      return res.json(updatedUser);
-    } catch (err) {
-      console.log(err);
-      return res.status(400).json(err);
-    }
-  },
-  // remove a set from `savedSets`
-  async deleteSet({ user, params }, res) {
-    const updatedUser = await User.findOneAndUpdate(
-      { _id: user._id },
-      { $pull: { savedSets: { setId: params.setId } } },
-      { new: true }
-    );
-    if (!updatedUser) {
-      return res.status(404).json({ message: "Couldn't find user with this id!" });
-    }
-    return res.json(updatedUser);
-  },
+  // async saveSet({ user, body }, res) {
+  //   console.log(user);
+  //   try {
+  //     const updatedUser = await User.findOneAndUpdate(
+  //       { _id: user._id },
+  //       { $addToSet: { savedSets: body } },
+  //       { new: true, runValidators: true }
+  //     );
+  //     return res.json(updatedUser);
+  //   } catch (err) {
+  //     console.log(err);
+  //     return res.status(400).json(err);
+  //   }
+  // },
+  // // remove a set from `savedSets`
+  // async deleteSet({ user, params }, res) {
+  //   const updatedUser = await User.findOneAndUpdate(
+  //     { _id: user._id },
+  //     { $pull: { savedSets: { setId: params.setId } } },
+  //     { new: true }
+  //   );
+  //   if (!updatedUser) {
+  //     return res.status(404).json({ message: "Couldn't find user with this id!" });
+  //   }
+  //   return res.json(updatedUser);
+  // },
 };

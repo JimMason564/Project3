@@ -35,28 +35,28 @@ const Home = () => {
                 </div>
             </div>
             <div className="container mb-5 mb-153">
-            <div className='row'>
-                <h1 className='mb-3'>Search for your favorite Lego Sets!</h1>
-                <p>Type something into the search box to find the sets you're interested in</p>
-                <div className='col-7'>
-                <form onSubmit={""} className="needs-validation" novalidate>
-                    <input
-                        type='text'
-                        name='search_sets'
-                        class='form-control form-control-lg' 
-                        placeholder='Enter Set Name'
-                        value={""}
-                        onChange={"handleChange"}
-                        required
-                    />
-                    <div className="invalid-feedback">
-                        Please enter a valid email.
-                    </div>
+                <div className='row'>
+                    <h1 className='mb-3'>Search for your favorite Lego Sets!</h1>
+                    <p>Type something into the search box to find the sets you're interested in</p>
+                    <div className='col-7'>
+                        <form onSubmit={""} className="needs-validation" novalidate>
+                            <input
+                                type='text'
+                                name='search_sets'
+                                class='form-control form-control-lg'
+                                placeholder='Enter Set Name'
+                                value={""}
+                                onChange={"handleChange"}
+                                required
+                            />
+                            <div className="invalid-feedback">
+                                Please enter a valid email.
+                            </div>
 
-                    <button type="submit" class="btn btn-blue mt-3">Search</button>
-                    
-                </form>
-                </div>
+                            <button type="submit" class="btn btn-blue mt-3">Search</button>
+
+                        </form>
+                    </div>
                 </div>
             </div>
         </>

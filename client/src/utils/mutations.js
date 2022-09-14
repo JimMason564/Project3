@@ -24,8 +24,3 @@ mutation AddUser($username: String!, $email: String!, $password: String!) {
   }
 }
 `;
-
-
-export const REMOVE_SET = gql`
-
-`;

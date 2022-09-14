@@ -1,8 +1,8 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-// import schema from Set.js
-const setSchema = require('./Set');
+// // import schema from Set.js
+// const setSchema = require('./Set');
 
 const userSchema = new Schema(
   {

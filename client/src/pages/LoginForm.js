@@ -22,7 +22,7 @@ const LoginForm = () => {
     //         setShowAlert(false)
     //     }
     // });
-    
+
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setUserFormData({ ...userFormData, [name]: value });
@@ -30,25 +30,21 @@ const LoginForm = () => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-
         // check if form has everything (as per react-bootstrap docs)
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
         }
-
         try {
             const { data } = await login({
                 variables: { ...userFormData }
             })
-            console.log(data)
-            Auth.login(data.login.token)
+            await Auth.login(data.login.token)
+            // window.location.href="/"
         } catch (error) {
             console.error(error);
-
         }
-
         setUserFormData({
             email: '',
             password: '',
@@ -98,36 +94,6 @@ const LoginForm = () => {
                                 Submit
                             </Button>
                         </Form>
-
-
-                        {/* <form onSubmit={""} className="needs-validation" novalidate>
-                            <label>Username or email address</label>
-                            <input
-                                type='text'
-                                name='search_sets'
-                                class='form-control form-control-lg mb-3'
-                                placeholder='Username or email address'
-                                value={""}
-                                onChange={"handleChange"}
-                                required
-                            />
-                            <label>Password</label>
-                            <input
-                                type='password'
-                                name='search_sets'
-                                class='form-control form-control-lg'
-                                placeholder='Password'
-                                value={""}
-                                onChange={"handleChange"}
-                                required
-                            />
-                            <div className="invalid-feedback">
-                                Please enter a valid email.
-                            </div>
-
-                            <button type="submit" class="btn btn-blue mt-3">Search</button>
-
-                        </form> */}
                     </div>
                 </div>
             </div>

@@ -122,46 +122,6 @@ const SignupForm = () => {
                             </Button>
                         </Form>
 
-
-                        {/*                     
-                    <form onSubmit={""} className="needs-validation" novalidate>
-                        <label>Choose a username</label>
-                        <input
-                            type='text'
-                            name='search_sets'
-                            class='form-control form-control-lg mb-3'
-                            placeholder='Username'
-                            value={""}
-                            onChange={"handleChange"}
-                            required
-                        />
-                        <label>Email address</label>
-                        <input
-                            type='text'
-                            name='search_sets'
-                            class='form-control form-control-lg mb-3'
-                            placeholder='Email address'
-                            value={""}
-                            onChange={"handleChange"}
-                            required
-                        />
-                        <label>Password</label>
-                        <input
-                            type='text'
-                            name='search_sets'
-                            class='form-control form-control-lg'
-                            placeholder='Password'
-                            value={""}
-                            onChange={"handleChange"}
-                            required
-                        />
-                        <div className="invalid-feedback">
-                            Please enter a valid email.
-                        </div>
-
-                        <button type="submit" class="btn btn-blue mt-3">Sign up</button>
-
-                    </form> */}
                     </div>
                 </div>
             </div>

@@ -12,7 +12,7 @@ import {
 import Auth from "../utils/auth";
 import { useMutation } from "@apollo/client";
 import { SAVE_SET } from "../utils/mutations";
-import { saveSetIds, getSetBookIds } from "../utils/localStorage";
+import { saveSetIds, getSetIds } from "../utils/localStorage";
 
 const SearchSets = () => {
   // create state for holding returned google api data
@@ -28,7 +28,7 @@ const SearchSets = () => {
   // set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
   useEffect(() => {
-    return () => saveBookIds(savedSetIds);
+    return () => saveSetIds(savedSetIds);
   });
 
   // create method to search for books and set state on form submit
@@ -50,7 +50,7 @@ const SearchSets = () => {
 
       const { items } = await response.json();
 
-      const bookData = items.map((set) => ({
+      const setData = items.map((set) => ({
         bookId: book.id,
         authors: book.volumeInfo.authors || ["No author to display"],
         title: book.volumeInfo.title,
@@ -65,8 +65,8 @@ const SearchSets = () => {
     }
   };
 
-  // create function to handle saving a book to our database
-  const handleSaveSet = async (bookId) => {
+  // create function to handle saving a set to our database
+  const handleSaveSet = async (setId) => {
     // find the book in `searchedBooks` state by the matching id
     const setToSave = searchedSets.find((set) => set.setId === setId);
 
@@ -82,8 +82,8 @@ const SearchSets = () => {
         variables: { setData: { ...setToSave } },
       });
       console.log(savedSetIds)
-      // if book successfully saves to user's account, save book id to state
-      setSavedSetIds([...savedSetIds, bookToSet.setId]);
+      // if set successfully saves to user's account, save book id to state
+      setSavedSetIds([...savedSetIds, setToSet.setId]);
     } catch (err) {
       console.error(err);
     }
