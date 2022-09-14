@@ -1,27 +1,30 @@
-const { Set, User } = require('../models')
+const { AuthenticationError } = require('apollo-server-express');
+const { User } = require('../models');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    me: async (parents, args, context) => {
+    me: async (parent, args, context) => {
       console.log(context.user)
       if (context.user) {
-        const user = await User.findOne({ _id: context.user_id})
-        console.log(user)
+        const user = await User.findOne({ _id: context.user._id });
         return user
-
       }
-      throw new AuthenticationError('You need to be logged in!')
+      throw new AuthenticationError('You need to be logged in!');
     },
-    set: async (parent, {Item_Number, Name, Year, Theme}, context) => {
-      if(context.set) {
-        // Unsure what to say to search for either one of these categories
-        const set = await Set.findOne({Item_Number, Name, Year, Theme})
-        console.log(set)
-        return set
-      }
-      throw console.error('Lego cannot be found!');
-    }
   },
+
+ 
+    // set: async (parent, {Item_Number, Name, Year, Theme}, context) => {
+    //   if(context.set) {
+    //     // Unsure what to say to search for either one of these categories
+    //     const set = await Set.findOne({Item_Number, Name, Year, Theme})
+    //     console.log(set)
+    //     return set
+    //   }
+    //   throw console.error('Lego cannot be found!');
+    // }
+  
   Mutation: {
     addUser: async (parent, {username, email, password }) => {
       const user = await User.create({username, password, email})

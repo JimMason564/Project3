@@ -7,11 +7,11 @@ const setSchema = new Schema({
     type: Number
   },
   Name: {
-    type: String,
+    type: String
   },
   // set number from Lego
   Year: {
-    type: Number,
+    type: Number
   },
   Theme: {
     type: String
@@ -20,7 +20,7 @@ const setSchema = new Schema({
     type: Number
   },
   Image_URL: {
-    type: String,
+    type: String
   }
 });
 
