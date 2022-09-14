@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/img/bricksrepo_logo.png';
+import SignUpForm from '../pages/SignupForm';
+import LoginForm from '../pages/LoginForm';
+import Auth from '../utils/auth';
 
 function Header() {
     return (
