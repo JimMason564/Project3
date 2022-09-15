@@ -1,27 +1,27 @@
 const { Schema } = require('mongoose');
 
-// This is a subdocument schema, it won't become its own model but we'll use it as the schema for the User's `savedSets` array in User.js
+// This is a subdocument schema, it won't become its own model but we'll use it as the schema for the User's savedSets array in User.js
 const setSchema = new Schema({
   // saved set id from Brickset
-  setID: {
-    type: String,
+  Item_Number: {
+    type: Number
   },
-  name: {
-    type: String,
+  Name: {
+    type: String
   },
   // set number from Lego
-  number: {
-    type: String,
+  Year: {
+    type: Number
   },
-  theme: {
-    type: String,
+  Theme: {
+    type: String
   },
-  year: {
-    type: String,
+  Pieces: {
+    type: Number
   },
-  image: {
-    type: String,
+  Image_URL: {
+    type: String
   }
 });
 
-module.exports = setSchema;
+module.exports = setSchema; 

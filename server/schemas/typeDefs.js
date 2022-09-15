@@ -7,12 +7,12 @@ const typeDefs = gql`
     savedSets: [Set]
   }
   type Set {
-    setID: Int
-    name: String
-    number: Int
-    theme: String
-    year: String
-    image: String
+    Item_Number: Int
+    Name: String
+    Year: Int
+    Theme: String
+    Pieces: String
+    Image_URL: String
   }
   type Auth {
     token: ID!
@@ -24,9 +24,9 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    saveSet(setID: [Int], name: String, number: Int, theme: String, year: Int, image: String): User
-    removeSet(setId: Int!): User
+    saveSet(Item_Number: Int, Name: String, Year: Int, Theme: String, Pieces: Int, Image_URL: String): User
+    removeSet(Item_Number: Int!): User
   }
-`;
+`
 
 module.exports = typeDefs;
