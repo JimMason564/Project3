@@ -186,6 +186,23 @@ ul.footer-nav li.copyright {
   min-height: 400px;
 }
 
+/* ------------- search results -------------- */
+.card-body {
+  background: linear-gradient(315deg,#444 0,#222 100%) #444;
+  font-family: var(--exo);
+}
+ul.lego-set-details {
+  padding-left: 0px;
+}
+ul.lego-set-details li {
+  list-style: none;
+  padding: 3px;
+  font-size: 18px;
+}
+.lego-set-item .card {
+  border:none;
+}
+
 .mb-153 {
   margin-bottom: 153px !important;
 }

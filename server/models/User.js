@@ -1,33 +1,33 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-// import schema from Set.js
-const setSchema = require('./Set');
+// // import schema from Set.js
+// const setSchema = require('./Set');
 
 const userSchema = new Schema(
   {
     username: {
       type: String,
       required: true,
-      unique: true,
+      unique: true
     },
     email: {
       type: String,
       required: true,
       unique: true,
-      match: [/.+@.+\..+/, 'Must use a valid email address'],
+      match: [/.+@.+\..+/, 'Must use a valid email address']
     },
     password: {
       type: String,
-      required: true,
-    },
-    // set savedBooks to be an array of data that adheres to the bookSchema
-    savedSets: [setSchema],
+      required: true
+    }
+    // set savedSets to be an array of data that adheres to the setSchema
+    // savedSets: [setSchema],
   },
   // set this to use virtual below
   {
     toJSON: {
-      virtuals: true,
+      virtuals: true
     },
   }
 );

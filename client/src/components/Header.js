@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/img/bricksrepo_logo.png';
+import Auth from '../utils/auth';
 
 function Header() {
     return (
@@ -25,12 +26,20 @@ function Header() {
                                 <li className="nav-item py-2 px-3">
                                     <Link to="/" className="nav-link">Home</Link>
                                 </li>
-                                <li className="nav-item py-2 px-3">
-                                    <Link to="/LoginForm" className="nav-link">Login</Link>
-                                </li>
-                                <li className="nav-item py-2 px-3">
-                                    <Link to="/SignupForm" className="nav-link">Signup</Link>
-                                </li>
+                                {
+                                    Auth.loggedIn() === false ?
+                                        <>
+                                            <li className="nav-item py-2 px-3">
+                                                <Link to="/LoginForm" className="nav-link">Login</Link>
+                                            </li>
+                                            <li className="nav-item py-2 px-3">
+                                                <Link to="/SignupForm" className="nav-link">Signup</Link>
+                                            </li></>
+                                        :
+                                        <li className="nav-item py-2 px-3">
+                                            <a onClick={Auth.logout} className="nav-link">Logout</a>
+                                        </li>
+                                }
                                 <hr>
                                 </hr>
                                 <ul className="nav-icons d-lg-none">
