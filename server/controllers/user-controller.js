@@ -7,7 +7,7 @@ module.exports = {
   // get a single user by either their id or their username
   async getSingleUser({ user = null, params }, res) {
     const foundUser = await User.findOne({
-      $or: [{ _id: user ? user._id : params.id }, { username: params.username }],
+      $or: [{ username: user ? user.username : params.username }, { username: params.username }],
     });
 
     if (!foundUser) {
@@ -48,7 +48,7 @@ module.exports = {
     console.log(user);
     try {
       const updatedUser = await User.findOneAndUpdate(
-        { _id: user._id },
+        { username: user.username },
         { $addToSet: { savedSets: body } },
         { new: true, runValidators: true }
       );
@@ -61,8 +61,8 @@ module.exports = {
   // remove a set from `savedSets`
   async deleteSet({ user, params }, res) {
     const updatedUser = await User.findOneAndUpdate(
-      { _id: user._id },
-      { $pull: { savedSets: { setId: params.setId } } },
+      { username: user.username },
+      { $pull: { savedSets: { ItemNumber: params.ItemNumber } } },
       { new: true }
     );
     if (!updatedUser) {
