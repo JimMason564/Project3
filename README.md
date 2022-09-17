@@ -4,19 +4,21 @@
 <br />
 <div align="center">
 
-  <h3 align="center">Project 3 README!</h3>
+![An image of the front page of the application](./assets/img/bricksrepo_logo.png)
 
   <p align="center">
     <br />
     <br />
-    <a href="#">View the application</a>
+    <a href="https://bricks-repo.herokuapp.com/" target="_blank">View the application</a>
     <br />
     <br />
   </p>
 </div>
 
 
-
+![An image of the front page of the application](./assets/img/bricks-repo_webpage_on_computer-2-hi-res.png)
+<br>
+<br>
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -41,29 +43,22 @@
   </ol>
 </details>
 <br />
-
+<br />
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![An image of the front page of the application](./public/screenshot.png)
+Lego’s history spans back to the early 20th century.  And throughout time, Lego has enjoyed steady growth while finding fun and exciting ways to be creative.  In today’s department stores, the Lego sets go well beyond the traditional Lego city and other “in-house” collections of 20 years ago.  There’s every kind of Lego to choose from, Marvel to DC, Harry Potter to Lord of the Rings, you name it, and they most likely have a collection with several sets available.  With over 1000 sets on the market to choose from, it can sometimes be challenging to keep up; this application hopes to help with that. 
+<br />
+<br />
+As fellow Lego hobbyists, #bricklife, we created this application to allow you to create a user profile and search for your favorite sets. Eventually, it will feature the ability to save sets to your profile, search for instruction manuals, mini-figures, and more.  The app was built using the MERN stack with a React front end, MongoDB database, Node.js/Express.js server, GraphQL, and Apollo Server.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-
-Lorem ipsum:
-* Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-* Ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-* Dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
 <br />
 <br />
 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
-### Built With
+## Built With
 
 Frameworks/libraries used to bootstrap the project.
 
@@ -71,21 +66,14 @@ Frameworks/libraries used to bootstrap the project.
 * [(E)xpress.js](https://expressjs.com/)
 * [(R)eact.js](https://reactjs.org/)
 * [(N)ode.js](https://nodejs.dev/en/)
+* [GraphQL](https://www.apollographql.com/)
 * [Bootstrap](https://getbootstrap.com/)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<br />
+<br />
 
-
-
-<!-- GETTING STARTED -->
-## Getting Started
-
-To get a local copy up and running follow these simple example steps.
-
-### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
+## Installation
+<br>
 
 1. Clone the repo
    ```sh
@@ -95,72 +83,36 @@ _Below is an example of how you can instruct your audience on installing and set
    ```sh
    npm install
    ```
+3. Enter NPM start to run the application 
+   ```
+   npm start
+   ```
 
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Screenshots, code examples and demos here. Link to resources etc.
-
-_For more examples, please refer to the [Documentation](/coursework/22-project-3/public/screenshot.png)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [x] Add Task
-- [x] Add Task
-- [ ] Add Task
-- [ ] Add Task
-    - [ ] Additional Task
-    - [ ] Additional Task
-
-See the [open issues](#) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
+<br />
+<br />
 
 <!-- LICENSE -->
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
+<br />
+<br />
 
 <!-- CONTACT -->
 ## Contact
 
 Names 
-- [@github/profile](#) - email@example.com
-- [@github/profile](#) - email@example.com
-- [@github/profile](#) - email@example.com
-- [@github/profile](#) - email@example.com
+- [@github/c1008h](#) - Christina Hong
+- [@github/JimMason564](#) - Jim Mason
+- [@github/jnmayhook](#) - Nathan Mayhook
+- [@github/timmmmma](#) - Zhentian Chen
 <br>
 <br>
 
 Project Link: [https://github.com/JimMason564/Project3](https://github.com/JimMason564/Project3)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<br>
+<br>
 
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
