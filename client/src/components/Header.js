@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/img/bricksrepo_logo.png';
 import Auth from '../utils/auth';
-
 function Header() {
     return (
         <>
@@ -43,7 +42,6 @@ function Header() {
                                 <hr>
                                 </hr>
                             </ul>
-
                         </div>
                     </div>
                 </nav>
@@ -51,5 +49,4 @@ function Header() {
         </>
     );
 }
-
 export default Header;
