@@ -23,21 +23,9 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#about-the-project">About The Project</a></li>
+    <li><a href="#technologies">Technologies</a></li>
         <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -53,12 +41,12 @@ Lego’s history spans back to the early 20th century.  And throughout time, Leg
 <br />
 As fellow Lego hobbyists, #bricklife, we created this application to allow you to create a user profile and search for your favorite sets. Eventually, it will feature the ability to save sets to your profile, search for instruction manuals, mini-figures, and more.  The app was built using the MERN stack with a React front end, MongoDB database, Node.js/Express.js server, GraphQL, and Apollo Server.
 
+
 <br />
-<br />
 
 
 
-## Built With
+## Technologies
 
 Frameworks/libraries used to bootstrap the project.
 
@@ -69,7 +57,7 @@ Frameworks/libraries used to bootstrap the project.
 * [GraphQL](https://www.apollographql.com/)
 * [Bootstrap](https://getbootstrap.com/)
 
-<br />
+
 <br />
 
 ## Installation
@@ -88,13 +76,13 @@ Frameworks/libraries used to bootstrap the project.
    npm start
    ```
 
-<br />
+
 <br />
 
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT License.
 <br />
 <br />
 
@@ -111,8 +99,7 @@ Names
 
 Project Link: [https://github.com/JimMason564/Project3](https://github.com/JimMason564/Project3)
 
-<br>
-<br>
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
