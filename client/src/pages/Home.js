@@ -1,12 +1,7 @@
 import React from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
 
-import SetSearchResults from '../components/SetSearchResults';
 import SetSearchForm from '../components/SetSearchForm';
 
-import Auth from '../utils/auth';
 
 function Home(){
 

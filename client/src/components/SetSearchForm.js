@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import SetSearchResults from './SetSearchResults';
-import { useLazyQuery, useQuery } from '@apollo/client';
+import { useLazyQuery } from '@apollo/client';
 import { GET_SET } from '../utils/queries';
 
 const SetSearchForm = () => {
@@ -16,17 +16,19 @@ const SetSearchForm = () => {
           return false;
       }
       console.log(searchInput)  //correct
-      getSet({
-        variables: {Name: searchInput}
-      })
-      console.log(data)
       const set = data?.set || []
-      console.log(set)
-      setSearchInput("")
-   };
-
-
-
+      try {
+        await getSet ({
+          variables: {Name: searchInput}
+        });
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    // console.log(set)
+    // setSearchInput("")
+    
+    console.log(data)
 
   return (
     <>
@@ -47,12 +49,11 @@ const SetSearchForm = () => {
         </div>
       </form>
       <div className='container mb-5 mb-153'>
-                {/* <div className="row d-flex">
-                    
+                <div className="row d-flex">
                     <SetSearchResults
-                        set={set}
+                        set={data?.set}
                     />
-                </div> */}
+                </div>
             </div> 
     </>
   );

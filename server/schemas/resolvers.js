@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, LegoSets } = require('../models');
+const { User, Set } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -13,7 +13,8 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     set: async ( parent, { Name }) => {
-      const set = await LegoSets.findOne({Name: Name})
+      const set = await Set.findOne({Name: Name})
+      console.log(set)
       return set;
     }
   },

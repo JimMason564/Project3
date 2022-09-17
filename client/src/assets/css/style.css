@@ -201,8 +201,17 @@ ul.lego-set-details li {
 }
 .lego-set-item .card {
   border:none;
+  
 }
-
+.save-set {
+  width: 100%;
+}
+.lego-set-item {
+  padding-left: 0px !important;
+}
+h2.lego-set-header {
+  padding-left: 0px !important;
+}
 .mb-153 {
   margin-bottom: 153px !important;
 }
