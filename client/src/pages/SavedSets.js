@@ -10,7 +10,7 @@ import {
 import { useQuery, useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { QUERY_ME } from "../utils/queries";
-import { REMOVE_BOOK } from "../utils/mutations";
+import { REMOVE_SET } from "../utils/mutations";
 import { removeBookId } from "../utils/localStorage";
 
 const SavedSets = () => {

@@ -24,7 +24,7 @@ const typeDefs = gql`
   }
   type Query {
     me: User
-    sets: [Set]
+    set(Name: String!): Set
   }
   type Mutation {
     login(email: String!, password: String!): Auth
