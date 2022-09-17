@@ -8,28 +8,8 @@ import SetSearchForm from '../components/SetSearchForm';
 
 import Auth from '../utils/auth';
 
-const Home = () => {
-    // const handleFormSubmit = async (event) => {
-    //     event.preventDefault();
+function Home(){
 
-    //     if (!searchInput) {
-    //         return false;
-    //     }
-    //     try {
-    //         const { loading, data } = useQuery(GET_SETS, {
-    //             // pass URL parameter
-    //             variables: { Name },
-    //         });
-
-    //         setSearchInput('');
-    //     } catch (err) {
-    //         console.error(err);
-    //     }
-    // };
-    // const { loading, data } = useQuery(GET_SETS);
-    // const sets = data?.sets || [];
-
-    // const searchSets = data?.sets || [];
     return (
         <>
             <div id="myCarousel" className="carousel slide carousel-fade mb-5" data-bs-ride="carousel">
@@ -72,16 +52,10 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className='container mb-5 mb-153'>
-                <div className="row d-flex">
-                    <h2>Results:</h2>
-                    <SetSearchResults
-                        // sets={sets}
-                    />
-                </div>
-            </div>
+            
         </>
     );
-}
+    }
+
 
 export default Home;

@@ -12,8 +12,8 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    sets: async () => {
-      return Set.find({});
+    set: async ( parent, { name }) => {
+      return Set.findOne({name});
     }
   },
 

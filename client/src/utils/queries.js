@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-export const GET_ME = gql`
+export const GET_ME = gql `
 query Query {
   me {
     username
@@ -16,18 +16,18 @@ query Query {
 }
 `;
 
-export const GET_SETS = gql`
-query Set {
+export const GET_SET = gql `
+query Set($setName: String) {
   sets {
     _id
-    Item_Number
-    Name
-    Year
-    Theme
-    Subtheme
-    Pieces
-    Minifigures
-    Image_URL
+    item_number
+    setName
+    year
+    theme
+    subtheme
+    pieces
+    minifigures
+    image_url
   }
 }
 `;
