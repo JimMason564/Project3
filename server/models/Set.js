@@ -34,7 +34,7 @@ const setSchema = new Schema(
     }
   },
   {
-    collection: "lego"
+    collection: "legoData"
   }
 );
 
