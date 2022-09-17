@@ -1,5 +1,8 @@
 import React from 'react';
 import setImage from '../assets/img/lego-image-space-set.jpg';
+import SetSearchForm from './SetSearchForm';
+
+
 
 function SetSearchResults({ set }) {
   return (

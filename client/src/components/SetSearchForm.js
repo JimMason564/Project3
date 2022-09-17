@@ -47,12 +47,12 @@ const SetSearchForm = () => {
         </div>
       </form>
       <div className='container mb-5 mb-153'>
-                {/* <div className="row d-flex">
+                <div className="row d-flex">
                     
                     <SetSearchResults
                         set={set}
                     />
-                </div> */}
+                </div>
             </div> 
     </>
   );
