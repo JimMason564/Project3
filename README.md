@@ -89,11 +89,11 @@ Distributed under the MIT License.
 <!-- CONTACT -->
 ## Contact
 
-Names 
-- [@github/c1008h](#) - Christina Hong
-- [@github/JimMason564](#) - Jim Mason
-- [@github/jnmayhook](#) - Nathan Mayhook
-- [@github/timmmmma](#) - Zhentian Chen
+
+- [@github/c1008h](https://github.com/c1008h) - Christina Hong
+- [@github/JimMason564](https://github.com/JimMason564) - Jim Mason
+- [@github/jnmayhook](https://github.com/jnmayhook) - Nathan Mayhook
+- [@github/timmmmma](https://github.com/timmmmma) - Zhentian Chen
 <br>
 <br>
 
