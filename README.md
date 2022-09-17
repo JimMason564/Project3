@@ -97,7 +97,8 @@ Distributed under the MIT License.
 <br>
 <br>
 
-Project Link: [https://github.com/JimMason564/Project3](https://github.com/JimMason564/Project3)
+Deployed App: [https://bricks-repo.herokuapp.com/](https://bricks-repo.herokuapp.com/)
+Project Repo: [https://github.com/JimMason564/Project3](https://github.com/JimMason564/Project3)
 
 
 
