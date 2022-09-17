@@ -5,29 +5,28 @@ query Query {
   me {
     username
     savedSets {
-      setID
-      name
-      number
-      theme
-      year
-      image
+      Name
+      Item_Number
+      Subtheme
+      Year
+      Image_URL
     }
   }
 }
 `;
 
 export const GET_SET = gql `
-query Set($setName: String) {
-  sets {
+query getSet($Name: String!) {
+  set(Name: $Name) {
     _id
-    item_number
-    setName
-    year
-    theme
-    subtheme
-    pieces
-    minifigures
-    image_url
+    Item_Number
+    Name
+    Year
+    Theme
+    Subtheme
+    Pieces
+    Minifigures
+    Image_URL
   }
 }
 `;

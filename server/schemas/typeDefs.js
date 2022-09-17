@@ -8,14 +8,14 @@ const typeDefs = gql`
   }
   type Set {
     _id: ID
-    item_number: Int
-    name: String
-    year: Int
-    theme: String
-    subtheme: String
-    pieces: Int
-    minifigures: Int
-    image_url: String
+    Item_Number: Int
+    Name: String
+    Year: Int
+    Theme: String
+    Subtheme: String
+    Pieces: Int
+    Minifigures: Int
+    Image_URL: String
   }
 
   type Auth {
@@ -24,7 +24,7 @@ const typeDefs = gql`
   }
   type Query {
     me: User
-    set: [Set]
+    set(Name: String!): Set
   }
   type Mutation {
     login(email: String!, password: String!): Auth

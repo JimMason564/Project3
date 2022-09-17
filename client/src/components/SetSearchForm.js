@@ -1,42 +1,36 @@
 import React, {useState} from 'react';
 import SetSearchResults from './SetSearchResults';
-import { useQuery } from '@apollo/client';
+import { useLazyQuery, useQuery } from '@apollo/client';
 import { GET_SET } from '../utils/queries';
 
 const SetSearchForm = () => {
   const [searchInput, setSearchInput]= useState("")
-  const { loading, data } = useQuery(GET_SET, {
-    // pass URL parameter
-    variables: { searchInput },
-});
+  const [ getSet, {loading, data, error} ] = useLazyQuery(GET_SET)
 
-let searchName;
-const set = data;
-  // const handleFormSubmit = async (event) => {
-  //     event.preventDefault();
 
-  //     if (!searchInput) {
-  //         return false;
-  //     }
-  //     try {
-          
-  //         if (loading) {
-  //           return <h2>LOADING...</h2>;
-  //         }
-  //         const set = data?.set || [];
-  //         setSearchInput('');
-  //     } catch (err) {
-  //         console.error(err);
-  //     }
-   
-  // };
 
-setSearchInput("")
+   const handleFormSubmit = async (event) => {
+       event.preventDefault();
+
+      if (!searchInput) {
+          return false;
+      }
+      console.log(searchInput)  //correct
+      getSet({
+        variables: {Name: searchInput}
+      })
+      console.log(data)
+      const set = data?.set || []
+      console.log(set)
+      setSearchInput("")
+   };
+
+
 
 
   return (
     <>
-      <form onSubmit={(e)=> {setSearchInput(searchName)}}>
+      <form onSubmit={handleFormSubmit}>
         <div className="form-row">
           <div className="col-md-8 col-12">
             <input name="searchInput"
@@ -44,8 +38,8 @@ setSearchInput("")
               type="text"
               className="form-control form-control-lg"
               value={searchInput}
-              onChange={(e) => searchName= e.target.value}
-              ></input>
+              onChange={(e) => setSearchInput(e.target.value)}
+              />
           </div>
           <div class="col-md-4 col-12">
             <button type="submit" className="btn btn-blue mt-3">Submit Search</button>
@@ -53,12 +47,12 @@ setSearchInput("")
         </div>
       </form>
       <div className='container mb-5 mb-153'>
-                <div className="row d-flex">
+                {/* <div className="row d-flex">
                     
                     <SetSearchResults
                         set={set}
                     />
-                </div>
+                </div> */}
             </div> 
     </>
   );
