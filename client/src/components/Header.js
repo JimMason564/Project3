@@ -22,7 +22,7 @@ function Header() {
                         </div>
                         <div className="offcanvas-body p-4 pt-0 p-lg-0">
                             <ul className="navbar-nav flex ms-md-auto">
-                                <li className="sidebar-brand"><a href="#page-top"></a></li>
+                                <li className="sidebar-brand"></li>
                                 <li className="nav-item py-2 px-3">
                                     <Link to="/" className="nav-link">Home</Link>
                                 </li>
@@ -42,11 +42,6 @@ function Header() {
                                 }
                                 <hr>
                                 </hr>
-                                <ul className="nav-icons d-lg-none">
-                                    <li><a></a></li>
-                                    <li><a></a></li>
-                                    <li><a></a></li>
-                                </ul>
                             </ul>
 
                         </div>
